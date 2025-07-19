@@ -22,8 +22,15 @@
             height: 220px;
             max-height: 280px;
         }
+        .doughnut-chart-container {
+             height: 250px;
+             max-height: 300px;
+        }
         @media (min-width: 768px) {
             .chart-container {
+                height: 270px;
+            }
+            .doughnut-chart-container {
                 height: 270px;
             }
         }
@@ -100,7 +107,7 @@
                 <div class="bg-white rounded-lg shadow-lg p-5">
                     <h3 class="text-lg font-bold text-[#005A9C] text-center mb-3">Comprehensive Skill Coverage</h3>
                      <p class="text-center text-gray-600 mb-3 text-sm">Our 100+ titles are balanced across crucial business domains for holistic development.</p>
-                    <div class="chart-container">
+                    <div class="chart-container doughnut-chart-container">
                         <canvas id="courseCategoriesChart"></canvas>
                     </div>
                 </div>
@@ -252,7 +259,8 @@
                 plugins: {
                     ...tooltipTitleCallback.plugins,
                     legend: {
-                        position: 'bottom',
+                        position: 'right',
+                        align: 'center',
                         labels: {
                             color: chartFontColor,
                             font: { 
@@ -260,7 +268,7 @@
                                 size: 10
                             },
                             boxWidth: 12,
-                            padding: 10,
+                            padding: 15,
                             generateLabels: function(chart) {
                                 const data = chart.data;
                                 if (data.labels.length && data.datasets.length) {
@@ -268,7 +276,7 @@
                                         const meta = chart.getDatasetMeta(0);
                                         const style = meta.controller.getStyle(i);
                                         return {
-                                            text: wrapLabels(label, 22),
+                                            text: wrapLabels(label, 20),
                                             fillStyle: style.backgroundColor,
                                             strokeStyle: style.borderColor,
                                             lineWidth: style.borderWidth,
